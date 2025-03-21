@@ -4,6 +4,7 @@ import { useAuthStore } from '../../stores/authStore'
 import Button from '../../components/ui/Button'
 import Input from '../../components/ui/Input'
 import { toast } from 'react-hot-toast'
+import { APP_LOGO_URL } from '../../config/constants'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -33,7 +34,7 @@ export default function LoginPage() {
         <div>
           <img
             className="mx-auto h-32 w-auto"
-            src="https://firebasestorage.googleapis.com/v0/b/ldoil-cc862.firebasestorage.app/o/app-assets%2Flogo%2Flogo.png?alt=media&token=98acdd73-45c5-4248-a72b-55838002de23"
+            src={APP_LOGO_URL}
             alt="LD Oil Services"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
