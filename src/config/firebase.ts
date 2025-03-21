@@ -1,7 +1,7 @@
-import { initializeApp } from 'firebase/app'
-import { getAuth, connectAuthEmulator } from 'firebase/auth'
-import { getFirestore } from 'firebase/firestore'
-import { getStorage } from 'firebase/storage'
+import { initializeApp, FirebaseApp } from 'firebase/app'
+import { getAuth, Auth } from 'firebase/auth'
+import { getFirestore, Firestore } from 'firebase/firestore'
+import { getStorage, FirebaseStorage } from 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -16,10 +16,10 @@ const firebaseConfig = {
 console.log('Firebase config (auth domain):', import.meta.env.VITE_FIREBASE_AUTH_DOMAIN);
 
 // Initialize Firebase
-let auth;
-let db;
-let storage;
-let app;
+let auth: Auth;
+let db: Firestore;
+let storage: FirebaseStorage;
+let app: FirebaseApp;
 
 try {
   app = initializeApp(firebaseConfig);
