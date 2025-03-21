@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --background: #f3f4f6;
+  --text: #111827;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #111827;
+  --text: #f3f4f6;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme styles (default) */
+.bg-white {
+  background-color: #ffffff;
+}
+
+.text-gray-900 {
+  color: #111827;
+}
+
+.text-gray-700 {
+  color: #374151;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.border-gray-200 {
+  border-color: #e5e7eb;
+}
+
+.bg-gray-50 {
+  background-color: #f9fafb;
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] .bg-white {
+  background-color: #1f2937;
+}
+
+[data-theme="dark"] .text-gray-900 {
+  color: #f3f4f6;
+}
+
+[data-theme="dark"] .text-gray-700 {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .text-gray-500 {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .border-gray-200 {
+  border-color: #374151;
+}
+
+[data-theme="dark"] .bg-gray-50 {
+  background-color: #374151;
+}
+
+[data-theme="dark"] .hover\:bg-gray-50:hover {
+  background-color: #374151;
+}

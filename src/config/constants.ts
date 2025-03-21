@@ -1,0 +1,1 @@
+export const APP_LOGO_URL = 'https://firebasestorage.googleapis.com/v0/b/ldoil-cc862.firebasestorage.app/o/app-assets%2Flogo%2Flogo.png?alt=media&token=98acdd73-45c5-4248-a72b-55838002de23'

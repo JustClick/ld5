@@ -1,0 +1,31 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isSuperAdmin() {
+      return isAuthenticated() && 
+        exists(/databases/(default)/documents/users/$(request.auth.uid)) &&
+        get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'super_admin';
+    }
+
+    // Profile images
+    match /profile-images/{userId}/{imageFile} {
+      allow read: if true;
+      allow write: if isAuthenticated() && 
+                   request.auth.uid == userId &&
+                   request.resource.contentType.matches('image/.*') &&
+                   request.resource.size < 5 * 1024 * 1024;
+    }
+    
+    // App logo
+    match /app-assets/logo/{fileName} {
+      allow read: if true;
+      allow write: if isSuperAdmin() &&
+                   request.resource.contentType.matches('image/.*') &&
+                   request.resource.size < 2 * 1024 * 1024;
+    }
+  }
+}
